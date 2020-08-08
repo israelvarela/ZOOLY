@@ -29,3 +29,4 @@ WHEN I input an animal name
 THEN I get images of that animal and suggested reading
 
 ```
+![ZOOLY_wireframe](https://user-images.githubusercontent.com/62815477/89718036-b04bfd00-d981-11ea-8d8a-d4a12aeaa78b.png)
