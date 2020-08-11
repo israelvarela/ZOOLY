@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
     // Grab our search elements
-    var searchInput = $("#SEARCHINPUTGOESHERE");
-    var searchButton = $("#SEARCHBUTTONGOESHERE");
+    var searchInput = $("#search");
+    var searchButton = $("#search-button");
 
     // Array of animals
     var animalsArray = [
@@ -242,19 +242,36 @@ $(document).ready(function () {
         // If the search term is in the animals array...
         if (animalsArray.includes(formatSearch(searchTerm))) {
 
+            // TODO: Display GIFS
+
             //Then search for books using the search term
             searchForBooks(searchTerm);
 
-        } else { 
+            searchInput.val("");
+
+        } else {
             //TODO: If the search Term is not in the animals array, alert the user that the animal was not found
         }
 
     });
 
+    // Search if we hit the enter button
+    $('.click_on_enterkey').on('keyup', function (event) {
+        if (event.keyCode == 13) {
 
+            $(this).click();
+            console.log("enter clicked");
 
-    // This is here for testing. Delete later
-    searchForBooks();
+            // Grab the search term from the search input
+            var searchTerm = searchInput.val();
+
+            //Then search for books using the search term
+            searchForBooks(searchTerm);
+
+            //  Empty Search Field //
+            searchInput.val("");
+        }
+    });
 
 
 
