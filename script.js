@@ -234,16 +234,15 @@ $(document).ready(function () {
 
     var myImage = document.getElementById("mainImage");
     var imageArray =
-    
-     [
+    [
         "bear@4x.png",
         "bird@4x.png",
         "buffalo@4x.png",
         "cat@4x.png",
         "cow@4x.png",
-        "deer@4px.png",
+        "deer@4x.png",
         "dog@4x.png",
-        "elephant@4px.png",
+        "elephant@4x.png",
         "fox@4x.png",
         "giraffe@4x.png",
         "goat@4x.png",
@@ -263,12 +262,11 @@ $(document).ready(function () {
         "walrus@4x.png"
     ]
 
-    var imageIndex = 1;
+    setInterval(changeImage, 1000);
 
     function changeImage() {
-        myImage.setAttribute("src", imageArray[imageIndex]);
-        imageIndex++;
-        if (imageIndex >25) {imageIndex = 0;}
+        var randomNumber = Math.floor(Math.random()*imageArray.length)
+        myImage.setAttribute("src", "Assets/AnimalIconsPNG/" + imageArray[randomNumber]);
     }
 
 
