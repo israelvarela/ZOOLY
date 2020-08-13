@@ -317,11 +317,13 @@ $(document).ready(function () {
 
                 for (var i = 0; i < data.length; i++) {
 
-                    var newDiv = $("<div>")
+                    var newDiv = $("<div>");
                     var giphyImageUrl = data[i].images.downsized.url;
-                    var imageTag = $("<img>")
+                    var imageTag = $("<img>");
 
                     var imageGiphySrc = imageTag.attr("src", giphyImageUrl);
+
+                    newDiv.attr("class" , "col s3 animalGIF");
 
 
                     newDiv.append(imageGiphySrc);
@@ -400,9 +402,6 @@ $(document).ready(function () {
 
 
         });
-
-
-
 
 
 
