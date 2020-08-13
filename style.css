@@ -8,7 +8,17 @@
     padding: 8px;
     border-radius: 40px;
     border: rgb(194, 194, 194) 2px solid;
+<<<<<<< HEAD
+=======
+    padding-bottom: 20px;
+>>>>>>> f9a2763023fd3140e91aeaf5064ca8e0861db691
 }
+
+#search-button {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 
 #mainImage {
     height: 60px;
@@ -20,4 +30,19 @@
 .animalGIF img{
     width: 100%;
     height: 180px;
+<<<<<<< HEAD
+=======
+}
+
+#static-images img {
+    width: 50%;
+}
+
+.page-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+>>>>>>> f9a2763023fd3140e91aeaf5064ca8e0861db691
 }
