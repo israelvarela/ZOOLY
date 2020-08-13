@@ -234,44 +234,63 @@ $(document).ready(function () {
 
     var myImage = document.getElementById("mainImage");
     var imageArray =
-    [
-        "bear@4x.png",
-        "bird@4x.png",
-        "buffalo@4x.png",
-        "cat@4x.png",
-        "cow@4x.png",
-        "deer@4x.png",
-        "dog@4x.png",
-        "elephant@4x.png",
-        "fox@4x.png",
-        "giraffe@4x.png",
-        "goat@4x.png",
-        "gorilla@4x.png",
-        "hippopotamus@4x.png",
-        "horse@4x.png",
-        "huskydog@4x.png",
-        "koala@4x.png",
-        "Lion@4x.png",
-        "monkey@4x.png",
-        "panda@4x.png",
-        "pig@4x.png",
-        "rabbit@4x.png",
-        "rhino@4x.png",
-        "snake@4x.png",
-        "tiger@4x.png",
-        "walrus@4x.png"
-    ]
+        [
+            "bear@4x.png",
+            "bird@4x.png",
+            "buffalo@4x.png",
+            "cat@4x.png",
+            "cow@4x.png",
+            "deer@4x.png",
+            "dog@4x.png",
+            "elephant@4x.png",
+            "fox@4x.png",
+            "giraffe@4x.png",
+            "goat@4x.png",
+            "gorilla@4x.png",
+            "hippopotamus@4x.png",
+            "horse@4x.png",
+            "huskydog@4x.png",
+            "koala@4x.png",
+            "Lion@4x.png",
+            "monkey@4x.png",
+            "panda@4x.png",
+            "pig@4x.png",
+            "rabbit@4x.png",
+            "rhino@4x.png",
+            "snake@4x.png",
+            "tiger@4x.png",
+            "walrus@4x.png"
+        ]
 
     setInterval(changeImage, 1000);
 
     function changeImage() {
-        var randomNumber = Math.floor(Math.random()*imageArray.length)
+        var randomNumber = Math.floor(Math.random() * imageArray.length)
         myImage.setAttribute("src", "Assets/AnimalIconsPNG/" + imageArray[randomNumber]);
     }
 
 
     // When the search button is clicked...
     searchButton.on("click", function () {
+
+        // Search for books and gifs
+        search();
+
+    });
+
+    // Search if we hit the enter button
+    $('.click_on_enterkey').on('keyup', function (event) {
+        if (event.keyCode == 13) {
+
+            $(this).click();
+            console.log("enter clicked");
+
+            // Search for books and gifs
+            search();
+        }
+    });
+
+    function search() {
 
         // Grab the search term from the search input
         var searchTerm = searchInput.val();
@@ -283,16 +302,15 @@ $(document).ready(function () {
 
             var apiKey = "PWIpROSgJrTHpSVunJ87DDRAXNIAqSwF";
             var searchValue = $("#search").val();
-                $("#search").val("");
             var urlGiphy = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&offset=2&limit=4&rating=g&lang=en&q=${searchValue}`;
-                // console.log(urlGiphy);
+            // console.log(urlGiphy);
 
-                $("#giphy-here").empty();
-    
-            $.ajax({     
+            $("#giphy-here").empty();
+
+            $.ajax({
                 url: urlGiphy,
                 method: "GET"
-            }).then( function (response) {
+            }).then(function (response) {
                 // console.log(response);
 
                 var data = response.data
@@ -304,11 +322,11 @@ $(document).ready(function () {
                     var imageTag = $("<img>")
 
                     var imageGiphySrc = imageTag.attr("src", giphyImageUrl);
-                    
+
 
                     newDiv.append(imageGiphySrc);
                     $("#giphy-here").append(newDiv);
-                    
+
 
                 };
             });
@@ -321,25 +339,7 @@ $(document).ready(function () {
             //TODO: If the search Term is not in the animals array, alert the user that the animal was not found
         }
 
-    });
-
-    // Search if we hit the enter button
-    $('.click_on_enterkey').on('keyup', function (event) {
-        if (event.keyCode == 13) {
-
-            $(this).click();
-            console.log("enter clicked");
-
-            // Grab the search term from the search input
-            var searchTerm = searchInput.val();
-
-            //Then search for books using the search term
-            searchForBooks(searchTerm);
-
-            //  Empty Search Field //
-            searchInput.val("");
-        }
-    });
+    }
 
 
 
