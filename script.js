@@ -281,6 +281,37 @@ $(document).ready(function () {
 
             // TODO: Display GIFS
 
+            var apiKey = "PWIpROSgJrTHpSVunJ87DDRAXNIAqSwF";
+            var searchValue = $("#search").val();
+                $("#search").val("");
+            var urlGiphy = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&offset=2&limit=4&rating=g&lang=en&q=${searchValue}`;
+                // console.log(urlGiphy);
+
+                $("#giphy-here").empty();
+    
+            $.ajax({     
+                url: urlGiphy,
+                method: "GET"
+            }).then( function (response) {
+                // console.log(response);
+
+                var data = response.data
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var newDiv = $("<div>")
+                    var giphyImageUrl = data[i].images.downsized.url;
+                    var imageTag = $("<img>")
+
+                    var imageGiphySrc = imageTag.attr("src", giphyImageUrl);
+                    
+
+                    newDiv.append(imageGiphySrc);
+                    $("#giphy-here").append(newDiv);
+                    
+
+                };
+            });
             //Then search for books using the search term
             searchForBooks(searchTerm);
 
