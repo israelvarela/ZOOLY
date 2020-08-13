@@ -9,3 +9,9 @@
     border-radius: 10px;
 }
 
+#mainImage {
+    height: 60px;
+    width: 60px;
+    margin-bottom: -7px;
+    
+}

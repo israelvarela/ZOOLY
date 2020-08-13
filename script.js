@@ -232,6 +232,45 @@ $(document).ready(function () {
         "Zebra"
     ]
 
+    var myImage = document.getElementById("mainImage");
+    var imageArray =
+    
+     [
+        "bear@4x.png",
+        "bird@4x.png",
+        "buffalo@4x.png",
+        "cat@4x.png",
+        "cow@4x.png",
+        "deer@4px.png",
+        "dog@4x.png",
+        "elephant@4px.png",
+        "fox@4x.png",
+        "giraffe@4x.png",
+        "goat@4x.png",
+        "gorilla@4x.png",
+        "hippopotamus@4x.png",
+        "horse@4x.png",
+        "huskydog@4x.png",
+        "koala@4x.png",
+        "Lion@4x.png",
+        "monkey@4x.png",
+        "panda@4x.png",
+        "pig@4x.png",
+        "rabbit@4x.png",
+        "rhino@4x.png",
+        "snake@4x.png",
+        "tiger@4x.png",
+        "walrus@4x.png"
+    ]
+
+    var imageIndex = 1;
+
+    function changeImage() {
+        myImage.setAttribute("src", imageArray[imageIndex]);
+        imageIndex++;
+        if (imageIndex >25) {imageIndex = 0;}
+    }
+
 
     // When the search button is clicked...
     searchButton.on("click", function () {
@@ -367,4 +406,3 @@ $(document).ready(function () {
 
 
 });
-
