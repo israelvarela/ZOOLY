@@ -5,7 +5,7 @@
 .logo-text{
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 72px;
+    font-size: 92px;
     color: #26a69a;
 }
 
@@ -24,8 +24,8 @@
 
 
 #mainImage {
-    height: 70px;
-    width: 70px;
+    height: 90px;
+    width: 90px;
     margin-bottom: -10px;
     
 }
@@ -37,6 +37,12 @@
 
 #static-images img {
     width: 50%;
+    transition: all 1s ease;
+
+}
+
+#static-images img:hover  {
+    transform: scale(1.1);
 }
 
 .page-footer {
