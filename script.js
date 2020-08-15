@@ -23,6 +23,7 @@ $(document).ready(function () {
         "Bear",
         "Beaver",
         "Bee",
+        "Bird",
         "Bison",
         "Boar",
         "Buffalo",
@@ -90,6 +91,8 @@ $(document).ready(function () {
         "Gorilla",
         "Goshawk",
         "Grasshopper",
+        "Grey wolf",
+        "Gray wolf",
         "Grouse",
         "Guanaco",
         "Gull",
@@ -154,6 +157,7 @@ $(document).ready(function () {
         "Otter",
         "Owl",
         "Oyster",
+        "Panda", 
         "Panther",
         "Parrot",
         "Partridge",
@@ -167,7 +171,6 @@ $(document).ready(function () {
         "Porcupine",
         "Porpoise",
         "Quail",
-        "Quelea",
         "Quetzal",
         "Rabbit",
         "Raccoon",
@@ -180,7 +183,6 @@ $(document).ready(function () {
         "Reindeer",
         "Rhinoceros",
         "Rook",
-        "Salamander",
         "Salmon",
         "Sand Dollar",
         "Sandpiper",
@@ -200,6 +202,7 @@ $(document).ready(function () {
         "Squid",
         "Squirrel",
         "Starling",
+        "Starfish",
         "Stingray",
         "Stinkbug",
         "Stork",
@@ -311,7 +314,7 @@ $(document).ready(function () {
                 url: urlGiphy,
                 method: "GET"
             }).then(function (response) {
-                // console.log(response);
+                console.log(response);
 
                 var data = response.data
 
@@ -358,11 +361,21 @@ $(document).ready(function () {
             method: 'GET'
         }).then(function (response) {
 
+            var booksArea = $("#books-here");
+
+            booksArea.empty();
+
             // Log the response
             console.log(response);
 
             // store the response in an array
             var booksArray = response.items;
+
+            var booksHeader = $("<h3>")
+            booksHeader.text("Suggested Books");
+
+            booksArea.append(booksHeader);
+
 
             // For each element in the books array...
             booksArray.forEach(element => {
@@ -396,6 +409,11 @@ $(document).ready(function () {
                 infoLink = element.volumeInfo.infoLink;
 
                 // TODO: Render the information in HTML and append to our search results section
+                var bookDiv = $("<div>");
+
+                bookDiv.html("<div class='card horizontal'> <div class='card-image'><img src='" + imageURL + "'></div> <div class='card-stacked'><div class='card-content'> <h5>" + title + " by " + author + "</h5><p>" + description + "</p> <br> <a href = " + infoLink +" class='waves-effect waves-light btn'><i class='material-icons left'>book</i>Read More</a></div> </div> </div>");
+
+                booksArea.append(bookDiv);
 
             });
 

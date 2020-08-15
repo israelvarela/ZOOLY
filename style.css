@@ -2,6 +2,13 @@
     background-color: #ee6e73;
 }
 
+.logo-text{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 72px;
+    color: #26a69a;
+}
+
 #search {
     width: 100%;
     font-size: 24px;
@@ -17,17 +24,15 @@
 
 
 #mainImage {
-    height: 60px;
-    width: 60px;
-    margin-bottom: -7px;
+    height: 70px;
+    width: 70px;
+    margin-bottom: -10px;
     
 }
 
 .animalGIF img{
     width: 100%;
     height: 180px;
-<<<<<<< HEAD
-=======
 }
 
 #static-images img {
@@ -35,10 +40,10 @@
 }
 
 .page-footer {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 10;
 
->>>>>>> f9a2763023fd3140e91aeaf5064ca8e0861db691
 }
