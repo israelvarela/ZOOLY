@@ -28,6 +28,7 @@ $(document).ready(function () {
         "Boar",
         "Buffalo",
         "Butterfly",
+        "Bunny",
         "Camel",
         "Capybara",
         "Caribou",
@@ -40,7 +41,6 @@ $(document).ready(function () {
         "Chicken",
         "Chimpanzee",
         "Chinchilla",
-        "Chough",
         "Clam",
         "Cobra",
         "Cockroach",
@@ -48,7 +48,6 @@ $(document).ready(function () {
         "Cormorant",
         "Coyote",
         "Crab",
-        "Crane",
         "Crocodile",
         "Crow",
         "Curlew",
@@ -57,7 +56,6 @@ $(document).ready(function () {
         "Dog",
         "Dogfish",
         "Dolphin",
-        "Dotterel",
         "Dove",
         "Dragonfly",
         "Duck",
@@ -102,14 +100,12 @@ $(document).ready(function () {
         "Hedgehog",
         "Heron",
         "Herring",
-        "Hippopotamus",
         "Hornet",
         "Horse",
         "Human",
         "Hummingbird",
         "Hyena",
         "Ibex",
-        "Ibis",
         "Jackal",
         "Jaguar",
         "Jay",
@@ -177,11 +173,13 @@ $(document).ready(function () {
         "Rail",
         "Ram",
         "Rat",
+        "Rabbit",
         "Raven",
         "Red deer",
         "Red panda",
         "Reindeer",
         "Rhinoceros",
+        "Rhino",
         "Rook",
         "Salmon",
         "Sand Dollar",
@@ -241,7 +239,7 @@ $(document).ready(function () {
             "bear@4x.png",
             "bird@4x.png",
             "buffalo@4x.png",
-            "cat@4x.png",
+            "Cat@4x.png",
             "cow@4x.png",
             "deer@4x.png",
             "dog@4x.png",
@@ -250,7 +248,6 @@ $(document).ready(function () {
             "giraffe@4x.png",
             "goat@4x.png",
             "gorilla@4x.png",
-            "hippopotamus@4x.png",
             "horse@4x.png",
             "huskydog@4x.png",
             "koala@4x.png",
@@ -277,7 +274,7 @@ $(document).ready(function () {
     searchButton.on("click", function () {
 
         // Search for books and gifs
-        search();
+        search(searchInput.val());
 
     });
 
@@ -289,14 +286,23 @@ $(document).ready(function () {
             console.log("enter clicked");
 
             // Search for books and gifs
-            search();
+            search(searchInput.val());
         }
     });
 
-    function search() {
+    //Search for animal displayed on animal buttons
+    $('.animal-btn').on('click', function (event) {
+        var animalName = $(this).data('animal');
+        console.log(animalName);
+
+        // rendersearchForBooks(animalToSearchFor);
+        search(animalName);
+    });
+
+    function search(animalName) {
 
         // Grab the search term from the search input
-        var searchTerm = searchInput.val();
+        var searchTerm = animalName;
 
         // If the search term is in the animals array...
         if (animalsArray.includes(formatSearch(searchTerm))) {
@@ -304,7 +310,7 @@ $(document).ready(function () {
             // TODO: Display GIFS
 
             var apiKey = "PWIpROSgJrTHpSVunJ87DDRAXNIAqSwF";
-            var searchValue = $("#search").val();
+            var searchValue = animalName;
             var urlGiphy = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&offset=2&limit=4&rating=g&lang=en&q=${searchValue}`;
             // console.log(urlGiphy);
 
@@ -326,7 +332,7 @@ $(document).ready(function () {
 
                     var imageGiphySrc = imageTag.attr("src", giphyImageUrl);
 
-                    newDiv.attr("class" , "col s3 animalGIF");
+                    newDiv.attr("class" , "col s6 m3 animalGIF");
 
 
                     newDiv.append(imageGiphySrc);
@@ -342,6 +348,7 @@ $(document).ready(function () {
 
         } else {
             //TODO: If the search Term is not in the animals array, alert the user that the animal was not found
+            M.toast({html: 'Animal not found! Please try again.'})
         }
 
     }
@@ -354,7 +361,7 @@ $(document).ready(function () {
 
         // Call the GoogleBooks API
         var googleBooksAPIKey = "AIzaSyDoXQRvul2VBim0JWnXoVL4LakB9oIBfmU";
-        var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?printType=books&q=" + animalToSearchFor + "&key=" + googleBooksAPIKey;
+        var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?printType=books&maxAllowedMaturityRating=not-mature&q=" + animalToSearchFor + "&key=" + googleBooksAPIKey;
 
         $.ajax({
             url: googleBooksURL,
