@@ -349,6 +349,7 @@ $(document).ready(function () {
 
         } else {
             //TODO: If the search Term is not in the animals array, alert the user that the animal was not found
+            M.toast({html: 'Animal not found! Please try again.'})
         }
 
     }
