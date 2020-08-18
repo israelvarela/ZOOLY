@@ -1,6 +1,6 @@
 # ZOOLY
 
-ZOOLY is an online educational animal application to show and teach children about different types of animals, species, and scientific information about them.
+ZOOLY is an online educational animal application to show and teach children about different types of animals, species, and scientific information about them. Link here: https://israelvarela.github.io/ZOOLY/
 
 
 ## User Story:
@@ -29,4 +29,5 @@ WHEN I input an animal name
 THEN I get images of that animal and suggested reading
 
 ```
-![ZOOLY_wireframe](https://user-images.githubusercontent.com/62815477/89718036-b04bfd00-d981-11ea-8d8a-d4a12aeaa78b.png)
+![zooly webpage](https://user-images.githubusercontent.com/67175494/90456133-b0ed3d80-e0bd-11ea-97d5-a69dc5355372.jpg)
+
