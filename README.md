@@ -1,6 +1,6 @@
-# ZOOLY
+# [ZOOLY] (https://israelvarela.github.io/ZOOLY/)
 
-ZOOLY is an online educational animal application to show and teach children about different types of animals, species, and scientific information about them. Link here: https://israelvarela.github.io/ZOOLY/
+ZOOLY is an online educational animal application to show and teach children about different types of animals, species, and scientific information about them. Link here: 
 
 
 ## User Story:
